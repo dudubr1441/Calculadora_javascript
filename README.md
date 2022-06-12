@@ -1,2 +1,2 @@
 # Calculadora_javascript
-calculadora feita com javascript + html + css 
+calculadora feita com javascript puro + html + css 
