@@ -3,9 +3,8 @@
     padding: 0;
     margin: 0;
 }
-body{
-    width: 100%;
-    height: 100%;
+body{   
+    background-color: black;
 }
 .conteiner{
     width: 100%;
@@ -15,7 +14,7 @@ body{
 .Calculator{
     margin-left: auto;
     margin-right: auto;
-    width: 40%; 
+    width: 35%; 
     height: 100%;
     background-color: lightgray;
 }
@@ -39,6 +38,25 @@ input.resultado_calculator{
 #layout-buttons{
     display: grid;
     width: 100%;
-    height: 100%;
+    height: 80%;
     grid-template-columns: 75% 25%;
+}
+.managerButtons{
+    display: inline-block;
+}
+.rowButtons{
+    width: 100%;
+    height: 20%;
+    border: 0 none;
+}
+.buttonCalculator{
+    float: left;
+    border: 0 none;
+    margin: 0;
+    width: 33.3%;
+    height: 100%;
+    background-color: white;
+}
+.buttondark{
+    background-color: lightgray;
 }
