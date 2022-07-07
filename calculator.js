@@ -1,36 +1,41 @@
 function calculator(){
-    let valor = 0;
-    let valorAnterior;
+    let valor1;
+    let valor2;
+    let resultado;
     let inputCalculator;
-    this.Calcular =function(tipoSoma){
+    let tipoSoma;
+    this.Calcular = function(){
+         try {
             const valorCalculo = document.querySelector(inputCalculator).value;
-            if(typeof tipoSoma==='string'){
+            if(typeof tipoSoma==='string' && tipoSoma.length==1){
             document.querySelector(inputCalculator).value = '';
             arraysNumero = valorCalculo.split(tipoSoma)
-            valor1 = parseInt(arraysNumero[0])
-            valor2 = parseInt(arraysNumero[1])
+            console.log(arraysNumero);
+            valor1 = parseFloat(arraysNumero[0])
+            valor2 = parseFloat(arraysNumero[1])
             switch (tipoSoma) {
                     case '+':
-                        valor = valor1+valor2;
-                        inputCalculator!=undefined||inputCalculator!=null ? valorAnterior=valor: valor=valor
+                        resultado = valor1+valor2;
                         break;
                     case '-':
-                        valor = valor1-valor2;
-                        inputCalculator!=undefined||inputCalculator!=null ? valorAnterior=valor: valor=valor
+                        resultado = valor1-valor2;
                         break;
                     case '/':
-                        valor = valor1/valor2;
-                        inputCalculator!=undefined||inputCalculator!=null ? valorAnterior=valor: valor=valor
+                        resultado = valor1/valor2;
                         break;
                     case '*':
-                        valor = valor1*valor2;
-                        inputCalculator!=undefined||inputCalculator!=null ? valorAnterior=valor: valor=valor
+                        resultado = valor1*valor2;
                         break;
-                default:
-                    document.querySelector(inputCalculator).value = 'Format Invalid'
-                    break;
             }
+            if(resultado!=undefined && resultado!= null && resultado!=NaN){
+            document.querySelector(inputCalculator).value = resultado;
+            }else{alert('format invalid')}
+        }else{
+            alert('accept only one operator')
         }
+            } catch (error) {
+                console.error(error);    
+            }
     }
     this.addInput = function(idInput){
         try {
@@ -40,17 +45,28 @@ function calculator(){
                 inputCalculator = idInput
             }
         } catch (error) {
+            tipoSoma = undefined;
             console.error(error);
         }
     }
-    function calculoSoma(){
-        
+    this.addCalc = function (button){
+        document.querySelector(inputCalculator).value += button;
     }
-
-    // this.getInput = function(){
-    //     return inputCalculator;
-    // }
+    this.addOperator = function(button){
+        document.querySelector(inputCalculator).value += button;
+        if(button!='.'){
+        tipoSoma = button;
+        }
+    }
+    this.clear = function(){
+        document.querySelector(inputCalculator).value = '';
+        this.valor1 = undefined;
+        this.valor2 = undefined;
+        this.tipoSoma = undefined;
+    }
+    this.getInput = function(){
+        return inputCalculator;
+    }
 }
 const calculatorTest = new calculator();
-calculatorTest.addInput('result_calculator')
-console.log(calculatorTest.getInput())
+calculatorTest.addInput('result_calculator');

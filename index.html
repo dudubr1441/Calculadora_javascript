@@ -18,41 +18,50 @@
     <div class="conteiner">
         <div class="Calculator">
             <header class="header_calculador">
-                <input type="text" class="result_calculator">
+                <input type="text" id="result_calculator">
             </header>
             <div id="layout-buttons">
                 <div style="background-color: brown;" class="managerButtons">
                     <div class="rowButtons">
-                        <button class="buttonCalculator buttondark">+</button>
-                        <button class="buttonCalculator buttondark">-</button>
-                        <button class="buttonCalculator buttondark">x</button>
+                        <button class="buttonCalculator buttondark" id="operator*">*</button>
+                        <button class="buttonCalculator buttondark" id="operator-">-</button>
+                        <button class="buttonCalculator buttondark" id="operator+">+</button>
                     </div>
                     <div class="rowButtons">
-                        <button class="buttonCalculator">7</button>
-                        <button class="buttonCalculator">8</button>
-                        <button class="buttonCalculator">9</button>
+                        <button class="buttonCalculator" id="button7">7</button>
+                        <button class="buttonCalculator" id="button8">8</button>
+                        <button class="buttonCalculator" id="button9">9</button>
                     </div>
                     <div class="rowButtons">
-                        <button class="buttonCalculator">4</button>
-                        <button class="buttonCalculator">5</button>
-                        <button class="buttonCalculator">6</button>
+                        <button class="buttonCalculator" id="button4">4</button>
+                        <button class="buttonCalculator" id="button5">5</button>
+                        <button class="buttonCalculator" id="button6">6</button>
                     </div>
                     <div class="rowButtons">
-                        <button class="buttonCalculator">1</button>
-                        <button class="buttonCalculator">2</button>
-                        <button class="buttonCalculator">3</button>
+                        <button class="buttonCalculator" id="button1">1</button>
+                        <button class="buttonCalculator" id="button2">2</button>
+                        <button class="buttonCalculator" id="button3">3</button>
                     </div>
                     <div class="rowButtons">
-                        <button class="buttonCalculator">0</button>
-                        <button class="buttonCalculator">.</button>
-                        <button class="buttonCalculator">AC</button>
+                        <button class="buttonCalculator" id="button0">0</button>
+                        <button class="buttonCalculator" id="operator.">.</button>
+                        <button class="buttonCalculator" onclick="calculatorTest.clear();">AC</button>
                     </div>
             </div>
             <div id="layout-buttonColumn">
-                <button class="columnButtons buttondark" style="display: block; width: 100%; height: 20%;">/</button>
-                <button class="columnButtons buttondark" style="display: block; width: 100%; height: 80%; font-size: 35px;">=</button>
+                <button class="columnButtons buttondark" style="display: block; width: 100%; height: 20%;" id="operator/">/</button>
+                <button class="columnButtons buttondark" style="display: block; width: 100%; height: 80%; font-size: 35px;" onclick="calculatorTest.Calcular()">=</button>
             </div>
         </div>
     </div>
 </body>
+<script>
+    for (let index = 0; index <= 9; index++) {
+    document.querySelector(`#button${index}`).addEventListener('click',function(){calculatorTest.addCalc(index.toString())})
+    }
+    const listOperator = ['+','-','*','/','.']
+    for (let index = 0; index < listOperator.length; index++) {
+    document.getElementById(`operator${listOperator[index]}`).addEventListener('click',function(){calculatorTest.addOperator(listOperator[index])})
+    }
+</script>
 </html>

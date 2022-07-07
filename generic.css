@@ -26,7 +26,7 @@ body{
     flex-wrap: nowrap;
     text-align: end;
 }
-input.result_calculator{
+input#result_calculator{
     width: 100%;
     font-size: 2rem;
     font-family: 'Roboto Slab', serif;
