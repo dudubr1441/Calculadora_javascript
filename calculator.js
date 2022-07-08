@@ -5,6 +5,7 @@ function calculator(){
     let inputCalculator;
     let tipoSoma;
     this.Calcular = function(){
+
          try {
             const valorCalculo = document.querySelector(inputCalculator).value;
             if(typeof tipoSoma==='string' && tipoSoma.length==1){
@@ -30,13 +31,14 @@ function calculator(){
             if(resultado!=undefined && resultado!= null && resultado!=NaN){
             document.querySelector(inputCalculator).value = resultado;
             }else{alert('format invalid')}
-        }else{
-            alert('accept only one operator')
-        }
+            }else{
+                alert('accept only one operator')
+            }
             } catch (error) {
                 console.error(error);    
             }
     }
+
     this.addInput = function(idInput){
         try {
             if (typeof idInput ==='string') {
@@ -49,21 +51,25 @@ function calculator(){
             console.error(error);
         }
     }
+
     this.addCalc = function (button){
         document.querySelector(inputCalculator).value += button;
     }
+
     this.addOperator = function(button){
         document.querySelector(inputCalculator).value += button;
         if(button!='.'){
         tipoSoma = button;
         }
     }
+
     this.clear = function(){
         document.querySelector(inputCalculator).value = '';
         this.valor1 = undefined;
         this.valor2 = undefined;
         this.tipoSoma = undefined;
     }
+    
     this.getInput = function(){
         return inputCalculator;
     }
